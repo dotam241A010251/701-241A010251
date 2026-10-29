@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập TK7: Tạo chuỗi ngẫu nhiên</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 30px;
+            background-color: #f4f4f9;
+        }
+        .box {
+            max-width: 450px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 15px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .result {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #e9ecef;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="box">
+        <h2>Bài tập TK7: Tạo chuỗi ngẫu nhiên</h2>
+        <p>Viết hàm tạo chuỗi mật khẩu ngẫu nhiên dài 8 ký tự, bao gồm chữ cái thường và số[cite: 2].</p>
+        <button onclick="handleGeneratePassword()">Tạo mật khẩu</button>
+        <div class="result" id="result">Kết quả: (Chưa tạo)</div>
+    </div>
+
+    <script>
+        // Hàm sinh chuỗi ngẫu nhiên 8 ký tự
+        function generateRandomPassword(length = 8) {
+            const characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
+            let password = '';
+            for (let i = 0; i < length; i++) {
+                const randomIndex = Math.floor(Math.random() * characters.length);
+                password += characters[randomIndex];
+            }
+            return password;
+        }
+
+        // Sự kiện khi bấm nút
+        function handleGeneratePassword() {
+            const pwd = generateRandomPassword(8);
+            document.getElementById('result').innerText = "Kết quả: " + pwd;
+        }
+    </script>
+
+</body>
+</html>
